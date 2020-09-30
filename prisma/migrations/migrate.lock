@@ -1,0 +1,10 @@
+# Prisma Migrate lockfile v1
+
+20200927170901-start
+20200929122730-create_users
+20200929131511-user_email_unique
+20200929164913-create_tasks
+20200929182305-task_to_user
+20200929184435-task_with_status
+20200929190932-create_task_change_log
+20200929192005-add_created_at_to_user_and_task

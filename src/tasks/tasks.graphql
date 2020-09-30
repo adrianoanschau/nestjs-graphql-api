@@ -1,0 +1,29 @@
+enum TaskStatus {
+    TODO
+    COMPLETED
+    REOPENED
+}
+
+type Task {
+    id: Int!
+    description: String!
+    user: User!
+    status: TaskStatus!
+}
+
+type TaskChangeLog {
+    id: Int!
+    user: User!
+    task: Task!
+    status: TaskStatus!
+    updatedAt: Date!
+}
+
+extend type Query {
+    tasks: [Task]!
+}
+
+extend type Mutation {
+    createTask(description: String!): Task!
+    changeTaskStatus(taskId: Int!): Task!
+}

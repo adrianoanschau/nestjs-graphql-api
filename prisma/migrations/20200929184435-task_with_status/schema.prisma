@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Message {
+  id    Int @default(autoincrement()) @id
+  description String?
+}
+
+model User {
+  id    Int @default(autoincrement()) @id
+  name String
+  email String @unique
+  tasks Task[]
+}
+
+enum TaskStatus {
+  TODO
+  COMPLETED
+  REOPENED
+}
+
+model Task {
+  id    Int @default(autoincrement()) @id
+  description String
+  status TaskStatus @default(value: TODO)
+  user  User @relation
+}
